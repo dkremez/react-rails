@@ -13,8 +13,9 @@ var CartSummary =
   React.createClass({
     mixins:[StoreWatchMixin(CartTotals)],
     render:function(){
+      var style = {marginTop: 8};
       return (
-        <div>
+        <div style={style}>
           <Link
             to="/cart"
             className="btn btn-success">

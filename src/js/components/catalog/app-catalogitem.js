@@ -1,7 +1,8 @@
 /** @jsx React.DOM */
-var React = require('react'),
-    AddToCart = require('./app-addtocart.js'),
-    Link = require('react-router').Link;
+var React = require('react');
+var AddToCart = require('./app-addtocart.js');
+var Link = require('react-router').Link;
+var defaultImgPath = '/assets/product.png'
 
 
 var CatalogItem =
@@ -17,7 +18,7 @@ var CatalogItem =
       return (
           <div className="col-sm-3" style={itemStyle}>
             <div className="thumbnail">
-              <img src={this.props.item.img} alt="" style={imgStyle} />
+              <img src={this.props.item.img || defaultImgPath} alt="" style={imgStyle} />
               <div className="caption">
                 <h3>{this.props.item.title}</h3>
                 <p>{this.props.item.summary}</p>

@@ -15,6 +15,8 @@ gulp.task('copy', function() {
       .pipe(gulp.dest('dist'));
     gulp.src('src/assets/**/*.*')
       .pipe(gulp.dest('dist/assets'));
+    gulp.src('src/server.js')
+      .pipe(gulp.dest('dist'));
 });
 
 gulp.task('default',['browserify', 'copy']);

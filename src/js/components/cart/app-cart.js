@@ -5,7 +5,7 @@ var RemoveFromCart = require('./app-removefromcart.js');
 var Increase = require('./app-increase.js');
 var Decrease = require('./app-decrease.js');
 var StoreWatchMixin = require('../../mixins/StoreWatchMixin.js');
-Link = require('react-router').Link;
+var Link = require('react-router').Link;
 
 function cartItems(){
   return {items: AppStore.getCart()}
