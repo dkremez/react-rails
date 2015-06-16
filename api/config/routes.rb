@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+
   devise_for :user, only: []
 
   namespace :v1, defaults: { format: :json } do
     resource :login, only: [:create], controller: :sessions
     resource :logout, only: [:destroy], controller: :sessions
+    resource :users, only: [:create]
     resources :items, except: [:new, :edit]
   end
   # The priority is based upon order of creation: first created -> highest priority.
