@@ -12,6 +12,19 @@ var CHANGE_EVENT = "change";
 
 var _catalog = [];
 
+function _getErrors(res) {
+    var errorMsgs = ["Something went wrong, please try again"];
+    var json = JSON.parse(res.text);
+    if (json) {
+        if (json['errors']) {
+            errorMsgs = json['errors'];
+        } else if (json['error']) {
+            errorMsgs = [json['error']];
+        }
+    }
+    return errorMsgs;
+}
+
 function _getItems() {
     request.get(APIEndpoints.ITEMS)
         .set('Accept', 'application/json')

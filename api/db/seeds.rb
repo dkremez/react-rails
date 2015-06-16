@@ -1,4 +1,5 @@
 Item.delete_all
+User.delete_all
 
 10.times do |i|
   Item.create(
@@ -8,3 +9,7 @@ Item.delete_all
     cost: i*(rand*10).round(2)
   )
 end
+
+u = User.new(email: 'user@test.com')
+u.password = 'password'
+u.save!
