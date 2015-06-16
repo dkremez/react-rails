@@ -1,3 +1,4 @@
+"use strict";
 var AppConstants = require('../constants/app-constants.js');
 var ActionTypes = AppConstants.ActionTypes;
 var AppDispatcher = require('../dispatchers/app-dispatcher.js');
@@ -31,7 +32,7 @@ var AppActions = {
         AppDispatcher.handleViewAction({
             actionType: ActionTypes.LOAD_ITEMS
         })
-    },
-}
+    }
+};
 
 module.exports = AppActions;

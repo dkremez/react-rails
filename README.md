@@ -11,5 +11,5 @@
 9. Run `rake db:migrate`
 10. Run `rake db:seed`
 11. Go `cd ..`
-12. Run node dist/server.js
+12. Run `node dist/server.js`
 13. Enjoy

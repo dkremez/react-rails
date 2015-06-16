@@ -1,3 +1,4 @@
+"use strict";
 var AppDispatcher = require('../dispatchers/app-dispatcher');
 var AppConstants = require('../constants/app-constants');
 var merge = require('react/lib/Object.assign');
@@ -14,18 +15,18 @@ var _catalog = [];
 function _getItems() {
     request.get(APIEndpoints.ITEMS)
         .set('Accept', 'application/json')
-        .end(function(error, res) {
-          if (res) {
-              if (res.error) {
-                  var errorMsgs = _getErrors(res);
-                  console.log(errorMsgs);
-              } else {
-                  json = JSON.parse(res.text);
-                  _catalog = json['items'];
-                  AppStore.emitChange();
-              }
-          }
-      });
+        .end(function (error, res) {
+            if (res) {
+                if (res.error) {
+                    var errorMsgs = _getErrors(res);
+                    console.log(errorMsgs);
+                } else {
+                    var json = JSON.parse(res.text);
+                    _catalog = json['items'];
+                    AppStore.emitChange();
+                }
+            }
+        });
 }
 
 var _cartItems = [];
@@ -91,7 +92,7 @@ var AppStore = merge(EventEmitter.prototype, {
     },
 
     getCatalog: function () {
-        if(!_catalog.length)
+        if (!_catalog.length)
             _getItems();
         return _catalog
     },
@@ -136,6 +137,6 @@ var AppStore = merge(EventEmitter.prototype, {
 
         return true;
     })
-})
+});
 
 module.exports = AppStore;

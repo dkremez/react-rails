@@ -1,7 +1,8 @@
+"use strict";
 /** @jsx React.DOM */
 var React = require('react');
 var Header = require('./header/app-header.js');
-var Router = require('react-router')
+var Router = require('react-router');
 var RouteHandler = Router.RouteHandler;
 var SessionStore = require('../stores/session-store.js');
 var StoreWatchMixin = require('../mixins/StoreWatchMixin.js');
@@ -36,10 +37,10 @@ var Template =
                 <div className="container">
                     <Header
                         isLoggedIn={this.state.isLoggedIn}
-                        email={this.state.email} />
+                        email={this.state.email}/>
                     <RouteHandler
                         isLoggedIn={this.state.isLoggedIn}
-                        email={this.state.email} />
+                        email={this.state.email}/>
                 </div>
             )
         }

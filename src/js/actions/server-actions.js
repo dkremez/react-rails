@@ -1,3 +1,4 @@
+"use strict";
 var AppDispatcher = require('../dispatchers/app-dispatcher.js');
 var Constants = require('../constants/app-constants.js');
 var ActionTypes = Constants.ActionTypes;

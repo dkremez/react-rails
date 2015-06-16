@@ -15,6 +15,11 @@ module V1
       end
     end
 
+    def destroy
+      warden.logout
+      head :no_content
+    end
+
     private
 
     def invalid_login_attempt

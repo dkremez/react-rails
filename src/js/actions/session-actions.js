@@ -1,3 +1,4 @@
+"use strict";
 var AppDispatcher = require('../dispatchers/app-dispatcher.js');
 var Constants = require('../constants/app-constants.js');
 var WebAPIUtils = require('../utils/web-api-utils.js');
@@ -27,8 +28,9 @@ module.exports = {
 
     logout: function () {
         AppDispatcher.handleViewAction({
-            type: ActionTypes.LOGOUT
+            type: ActionTypes.LOGOUT_REQUEST
         });
+        WebAPIUtils.logout()
     }
 
 };

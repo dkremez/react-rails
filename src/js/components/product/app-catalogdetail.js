@@ -1,11 +1,10 @@
 /** @jsx React.DOM */
 'use strict';
-var React = require('react'),
-    AddToCart = require('../catalog/app-addtocart.js'),
-    Link = require('react-router').Link,
-    AppStore = require('../../stores/app-store.js'),
-    StoreWatchMixin = require('../../mixins/StoreWatchMixin.js');
-
+var React = require('react');
+var AddToCart = require('../catalog/app-addtocart.js');
+var Link = require('react-router').Link;
+var AppStore = require('../../stores/app-store.js');
+var StoreWatchMixin = require('../../mixins/StoreWatchMixin.js');
 
 function getCatalogItem(component){
   return {item: AppStore.getItem(component.props.params.item)};

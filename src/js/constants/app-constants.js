@@ -1,3 +1,4 @@
+"use strict";
 var keyMirror = require('keymirror');
 
 var APIRoot = "http://localhost:3000";
@@ -20,6 +21,7 @@ module.exports = {
         // Session
         LOGIN_REQUEST: null,
         LOGIN_RESPONSE: null,
+        LOGOUT_REQUEST: null,
         LOGOUT: null,
 
         // Routes
@@ -34,8 +36,8 @@ module.exports = {
         ADD_ITEM: null,
         REMOVE_ITEM: null,
         INCREASE_ITEM: null,
-        DECREASE_ITEM: null,
-    }),
+        DECREASE_ITEM: null
+    })
 
 
 };

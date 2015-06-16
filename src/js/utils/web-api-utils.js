@@ -1,10 +1,11 @@
+"use strict";
 var ServerActionCreators = require('../actions/server-actions.js');
 var Constants = require('../constants/app-constants.js');
 var request = require('superagent');
 
 function _getErrors(res) {
     var errorMsgs = ["Something went wrong, please try again"];
-    if ((json = JSON.parse(res.text))) {
+    if ((var json = JSON.parse(res.text))) {
         if (json['errors']) {
             errorMsgs = json['errors'];
         } else if (json['error']) {
@@ -28,7 +29,7 @@ module.exports = {
                         var errorMsgs = _getErrors(res);
                         ServerActionCreators.receiveLogin(null, errorMsgs);
                     } else {
-                        json = JSON.parse(res.text);
+                        var json = JSON.parse(res.text);
                         ServerActionCreators.receiveLogin(json, null);
                     }
                 }
@@ -52,11 +53,25 @@ module.exports = {
                         var errorMsgs = _getErrors(res);
                         ServerActionCreators.receiveLogin(null, errorMsgs);
                     } else {
-                        json = JSON.parse(res.text);
+                        var json = JSON.parse(res.text);
                         ServerActionCreators.receiveLogin(json, null);
                     }
                 }
             });
+    },
+
+    logout: function () {
+        request.del(APIEndpoints.LOGOUT)
+            .set('Accept', 'application/json')
+            .end(function (error, res) {
+                if (res) {
+                    if (res.error) {
+                        var errorMsgs = _getErrors(res);
+                        ServerActionCreators.receiveLogout(null, errorMsgs);
+                    } else {
+                        ServerActionCreators.receiveLogout();
+                    }
+                }
+            });
     }
-    // ...
 };

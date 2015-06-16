@@ -1,3 +1,4 @@
+"use strict";
 /** @jsx React.DOM */
 var React = require('react');
 var AppStore = require('../stores/app-store.js');
@@ -17,6 +18,6 @@ var StoreWatchMixin = function (cb) {
             this.setState(cb(this))
         }
     }
-}
+};
 
 module.exports = StoreWatchMixin;
